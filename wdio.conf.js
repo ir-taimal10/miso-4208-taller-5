@@ -1,5 +1,14 @@
+const fs = require('fs');
+
+const steps = []
+const stepsFolder = './features/step-definitions/';
+fs.readdirSync(stepsFolder).forEach(file => {
+    let step = stepsFolder + '/' + file;
+    steps.push(step);
+});
+
 exports.config = {
-    
+
     //
     // ==================
     // Specify Test Files
@@ -123,7 +132,7 @@ exports.config = {
     //
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
-        require: ['./features/step-definitions'],        // <string[]> (file/dir) require files before executing features
+        require: steps,        // <string[]> (file/dir) require files before executing features
         backtrace: false,   // <boolean> show full backtrace for errors
         compiler: [],       // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
         dryRun: false,      // <boolean> invoke formatters without executing steps
@@ -138,7 +147,7 @@ exports.config = {
         timeout: 20000,     // <number> timeout for step definitions
         ignoreUndefinedDefinitions: false, // <boolean> Enable this config to treat undefined definitions as warnings.
     },
-    
+
     //
     // =====
     // Hooks

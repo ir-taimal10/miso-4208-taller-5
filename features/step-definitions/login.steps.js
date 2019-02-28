@@ -7,10 +7,10 @@ defineSupportCode(({Given, When, Then}) => {
         if(browser.isVisible('button=Cerrar')) {
             browser.click('button=Cerrar');
         }
+        browser.waitForVisible('.botonIngresar', 8000);
     });
 
     When('I open the login screen', () => {
-        browser.waitForVisible('.botonIngresar', 8000);
         browser.waitForVisible('.botonIngresar', 8000);
         var buttonIngresar = browser.element('.botonIngresar');
         buttonIngresar.click();
@@ -34,7 +34,7 @@ defineSupportCode(({Given, When, Then}) => {
     });
 
     Then('I expect to not be able to login', () => {
-        browser.waitForVisible('.aviso.alert.alert-danger', 5000);
+        browser.waitForVisible('.aviso.alert.alert-danger', 15000);
     });
 
 

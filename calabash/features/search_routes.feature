@@ -22,7 +22,7 @@ Feature: Search for stations
     Then I wait for 1 seconds
     Then I wait to see "Detalle:Av. Caracas / Cll. 27 sur"
 
-  Scenario Outline: I want to search for any station typing the station name
+  Scenario Outline: I want to search for any station taping the station name
     Given I press "Rutas"
     Then I wait for 1 seconds
     Then I touch the "TRANSMILENIO" text
